@@ -85,7 +85,6 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
-
         </resources>
     </build>
 
@@ -100,7 +99,7 @@
                     <plugin>
                         <artifactId>maven-surefire-plugin</artifactId>
                         <version>${maven-surefire-plugin.version}</version>
-                        
+
                         <configuration>
                             <excludes>
                                 **/*IntegrationTest.java
@@ -146,14 +145,12 @@
                 </plugins>
             </build>
         </profile>
-
     </profiles>
-    
+
     <properties>
         <junit.vintage.version>5.4.2</junit.vintage.version>
         <junit-platform.version>1.2.0</junit-platform.version>
         <junit-jupiter.version>5.4.2</junit-jupiter.version>
-        <h2.version>1.4.196</h2.version>
         <spring.version>5.0.6.RELEASE</spring.version>
         <maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
     </properties>

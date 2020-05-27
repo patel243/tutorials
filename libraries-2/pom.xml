@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>libraries2</artifactId>
-    <name>libraries2</name>
+    <artifactId>libraries-2</artifactId>
+    <name>libraries-2</name>
+
     <parent>
         <groupId>com.baeldung</groupId>
         <artifactId>parent-modules</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
+
     <repositories>
         <repository>
             <id>jboss-public-repository-group</id>
@@ -25,6 +27,7 @@
             </snapshots>
         </repository>
     </repositories>
+
     <dependencies>
         <dependency>
             <groupId>org.mapdb</groupId>
@@ -34,7 +37,7 @@
         <dependency>
             <groupId>com.pivovarit</groupId>
             <artifactId>parallel-collectors</artifactId>
-            <version>1.1.0</version>
+            <version>${parallel-collectors.version}</version>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>
@@ -57,26 +60,6 @@
             <version>${picocli.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.ejml</groupId>
-            <artifactId>ejml-all</artifactId>
-            <version>${ejml.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.nd4j</groupId>
-            <artifactId>nd4j-native</artifactId>
-            <version>${nd4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.la4j</groupId>
-            <artifactId>la4j</artifactId>
-            <version>${la4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>colt</groupId>
-            <artifactId>colt</artifactId>
-            <version>${colt.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
             <version>${spring-boot-starter.version}</version>
@@ -92,28 +75,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!-- Dependencies for response decoder with okhttp -->
-        <dependency>
-            <groupId>com.squareup.okhttp3</groupId>
-            <artifactId>okhttp</artifactId>
-            <version>3.14.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.9.9</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.8.5</version>
-        </dependency>
-        <dependency>
-            <groupId>com.squareup.okhttp3</groupId>
-            <artifactId>mockwebserver</artifactId>
-            <version>3.14.2</version>
-            <scope>test</scope>
-        </dependency>
+       
         <dependency>
             <groupId>edu.uci.ics</groupId>
             <artifactId>crawler4j</artifactId>
@@ -122,22 +84,43 @@
         <dependency>
             <groupId>com.github.jknack</groupId>
             <artifactId>handlebars</artifactId>
-            <version>4.1.2</version>
-        </dependency>
-        <!-- Benchmarking -->
-        <dependency>
-            <groupId>org.openjdk.jmh</groupId>
-            <artifactId>jmh-core</artifactId>
-            <version>${jmh.version}</version>
+            <version>${handlebars.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.openjdk.jmh</groupId>
-            <artifactId>jmh-generator-annprocess</artifactId>
-            <version>${jmh.version}</version>
+            <groupId>org.apache.mesos</groupId>
+            <artifactId>mesos</artifactId>
+            <version>${mesos.library.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>${jasperreports.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-logging</artifactId>
+                    <groupId>commons-logging</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>${hsqldb.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
         </dependency>
     </dependencies>
+
     <properties>
-	    <mapdb.version>3.0.7</mapdb.version>
+        <mapdb.version>3.0.7</mapdb.version>
         <assertj.version>3.6.2</assertj.version>
         <classgraph.version>4.8.28</classgraph.version>
         <jbpm.version>6.0.0.Final</jbpm.version>
@@ -145,10 +128,12 @@
         <chronicle.map.version>3.17.2</chronicle.map.version>
         <crawler4j.version>4.4.0</crawler4j.version>
         <spring-boot-starter.version>2.1.4.RELEASE</spring-boot-starter.version>
-        <ejml.version>0.38</ejml.version>
-        <nd4j.version>1.0.0-beta4</nd4j.version>
-        <colt.version>1.2.0</colt.version>
-        <la4j.version>0.6.0</la4j.version>
-        <jmh.version>1.19</jmh.version>
+        <mesos.library.version>0.28.3</mesos.library.version>
+        <parallel-collectors.version>1.1.0</parallel-collectors.version>
+        <handlebars.version>4.1.2</handlebars.version>
+        <jasperreports.version>6.6.0</jasperreports.version>
+        <spring.version>5.1.9.RELEASE</spring.version>
+        <hsqldb.version>2.5.0</hsqldb.version>
     </properties>
+
 </project>

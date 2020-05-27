@@ -1,9 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.baeldung</groupId>
-    <version>0.1-SNAPSHOT</version>
     <artifactId>spring-mvc-webflow</artifactId>
+    <version>0.1-SNAPSHOT</version>
     <name>spring-mvc-webflow</name>
     <packaging>war</packaging>
 
@@ -52,14 +52,14 @@
             <artifactId>log4j-over-slf4j</artifactId>
             <version>${org.slf4j.version}</version>
         </dependency>
-        
+
         <!-- Test -->
         <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<version>1.5.10.RELEASE</version>
-			<scope>test</scope>
-		</dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>1.5.10.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 
@@ -72,6 +72,24 @@
             </resource>
         </resources>
         <plugins>
+            <plugin>
+                <groupId>org.apache.tomee.maven</groupId>
+                <artifactId>tomee-maven-plugin</artifactId>
+                <version>8.0.1</version>
+                <configuration>
+                    <tomeeHttpPort>8080</tomeeHttpPort>
+                    <context>spring-mvc-webflow</context>
+                    <reloadOnUpdate>true</reloadOnUpdate>
+                    <tomeeClassifier>plume</tomeeClassifier>
+                    <synchronization>
+                        <extensions>
+                            <extension>.class</extension>
+                        </extensions>
+                    </synchronization>
+                    <args>-Xmx2048m -XX:PermSize=256m -Dtomee.serialization.class.blacklist=- -Dtomee.serialization.class.whitelist=*</args>
+                    <removeDefaultWebapps>true</removeDefaultWebapps>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
@@ -94,10 +112,8 @@
         <httpclient.version>4.5.2</httpclient.version>
 
         <!-- Maven plugins -->
-        <maven-war-plugin.version>2.6</maven-war-plugin.version>
         <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
         <cargo-maven2-plugin.version>1.6.1</cargo-maven2-plugin.version>
-
     </properties>
 
 </project>
