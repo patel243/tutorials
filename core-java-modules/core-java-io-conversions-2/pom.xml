@@ -21,6 +21,17 @@
             <artifactId>commons-lang3</artifactId>
             <version>${commons-lang3.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${json.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>${opencsv.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -32,5 +43,10 @@
             </resource>
         </resources>
     </build>
+
+    <properties>
+        <json.version>20200518</json.version>
+        <opencsv.version>4.1</opencsv.version>
+    </properties>
 
 </project>
